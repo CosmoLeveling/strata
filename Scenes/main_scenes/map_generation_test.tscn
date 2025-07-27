@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://rid0w54pl5v3"]
+[gd_scene load_steps=19 format=3 uid="uid://rid0w54pl5v3"]
 
 [ext_resource type="Script" uid="uid://ooheeo86w4ki" path="res://util/test_world.gd" id="1_3u7ld"]
 [ext_resource type="PackedScene" uid="uid://cejyqytnh2ka4" path="res://util/gen/map_generation.tscn" id="2_reqem"]
@@ -69,6 +69,11 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_o2ctw"]
+geometry_parsed_geometry_type = 1
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"nav"
+
 [node name="Node3D" type="Node3D" node_paths=PackedStringArray("generator")]
 script = ExtResource("1_3u7ld")
 generator = NodePath("MapGeneration")
@@ -81,7 +86,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 visible = false
 shadow_enabled = true
 
-[node name="MapGeneration" parent="." node_paths=PackedStringArray("cart", "Player") instance=ExtResource("2_reqem")]
+[node name="MapGeneration" parent="." node_paths=PackedStringArray("cart", "Player") groups=["nav"] instance=ExtResource("2_reqem")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.53674e-07, -4.76837e-07, -1.90735e-06)
 start_scene = ExtResource("3_o2ctw")
@@ -143,5 +148,8 @@ grow_vertical = 2
 
 [node name="DrillShip" parent="." instance=ExtResource("12_o2ctw")]
 open = false
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_o2ctw")
 
 [connection signal="done_loading" from="Loading" to="." method="_on_loading_done_loading"]

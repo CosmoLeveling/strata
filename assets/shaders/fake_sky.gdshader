@@ -23,7 +23,7 @@ group_uniforms clouds;
 	uniform float clouds_speed : hint_range( 0.0, 20.0, 0.01 ) = 0.01;
 	uniform float clouds_scale : hint_range( 0.0, 4.0, 0.01 ) = 1.0;
 	uniform float clouds_cutoff : hint_range( 0.0, 1.0, 0.01 ) = 0.3;
-	
+
 	uniform float clouds_weight : hint_range( 0.0, 1.0, 0.01 ) = 0.0;
 	uniform float clouds_blur : hint_range( 0.0, 1.0, 0.01 ) = 0.25;
 	const mat2 m = mat2(vec2( 1.6, 1.2), vec2(-1.2, 1.6));
@@ -58,7 +58,7 @@ void sky()
 {
 	float time = TIME;
 	vec2 _sky_uv = EYEDIR.xz / sqrt( EYEDIR.y );
-	
+
 	float _eyedir_y = abs( sin( EYEDIR.y * PI * 0.5 ));
 
 	//SKYCOLOR
@@ -98,17 +98,17 @@ void sky()
 	if( EYEDIR.y > 0.0 )
 	{
 		vec3 normal = normalize(EYEDIR);
-		
-		
+
+
 		vec3 plane_intersect = normal / (normal.y + clouds_cutoff);
-		
+
 		vec2 p = plane_intersect.xz;
 		p.y *= -1.0;
 		vec2 uv = p;
-		
+
 		time = time * clouds_speed;
 		float q = fbm(uv * clouds_scale * 0.5);
-		
+
 		//ridged noise shape
 		float r = 0.0;
 		time = TIME * clouds_speed * 0.3;
@@ -120,7 +120,7 @@ void sky()
 			uv = m*uv + time;
 			weight *= 0.7;
 		}
-		
+
 		//noise shape
 		float f = 0.0;
 		time = TIME * clouds_speed * 0.4;
@@ -133,9 +133,9 @@ void sky()
 			uv = m*uv + time;
 			weight *= 0.6;
 		}
-		
+
 		f *= r + f;
-		
+
 		//noise colour
 		float c = 0.0;
 		time = TIME * clouds_speed * 2.0;
@@ -148,7 +148,7 @@ void sky()
 			uv = m*uv + time;
 			weight *= 0.6;
 		}
-		
+
 		//noise ridge colour
 		float c1 = 0.0;
 		time = TIME * clouds_speed * 5.0;
@@ -161,12 +161,12 @@ void sky()
 			uv = m*uv + time;
 			weight *= 0.6;
 		}
-		
+
 		c += c1;
-		
-		
-		
-		
+
+
+
+
 		float _clouds_amount = clamp( c, 0.0, 1.0 );
 		_clouds_amount *= clamp( abs( EYEDIR.y ) / clouds_blur, 0.0, 1.0 );
 		vec3 skycolour = COLOR;

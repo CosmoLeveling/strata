@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://cglaa57y8beri"]
+
+[ext_resource type="Script" uid="uid://plynkv866wq8" path="res://fps_gui.gd" id="1_0wntm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ghn23"]
+bg_color = Color(0.147672, 0.147672, 0.147672, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0562916, 0.0562916, 0.0562915, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PanelContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(407.435, 0)
+offset_right = 327.0
+offset_bottom = 28.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ghn23")
+script = ExtResource("1_0wntm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "FPS"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+custom_minimum_size = Vector2(245.28, 0)
+layout_mode = 2
+min_value = 30.0
+max_value = 257.0
+value = 60.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -4,3 +4,4 @@ extends Node3D
 func _ready() -> void:
 	MainCanvas.find_child("StartGui").visible=true
 	drill_ship._open_close()
+	GameManager.pause_menu = false

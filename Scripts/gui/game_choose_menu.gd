@@ -11,7 +11,7 @@ func _on_button_pressed() -> void:
 	var save:SaveGame = SaveGame.new()
 	save.money = 10000
 	save.items = ["tree"]
-	save.write_savegame("purple")
+	save.write_savegame("testing")
 
 
 func _on_load_pressed() -> void:

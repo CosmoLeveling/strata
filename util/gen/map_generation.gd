@@ -71,8 +71,9 @@ func generate_dungeon():
 					room_queue.append(new_room_instance)
 					print(str(placed_rooms.size()) + "/" + str(max_rooms))
 					
-	fill_doors()
-	spawn_ores()
+	await fill_doors()
+	await spawn_ores()
+	$"../NavigationRegion3D".bake_navigation_mesh()
 	Player.chara.global_position = drill_ship.player_spawn.global_position
 
 

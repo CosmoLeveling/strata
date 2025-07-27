@@ -13,4 +13,4 @@ func get_color_for_ore(ore : ores):
 		ores.Gold:
 			return Color("FFD700")
 		ores.Uranium:
-			return Color("00FF00")
+			return Color("009900")

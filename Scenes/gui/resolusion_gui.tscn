@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://d131or8gdybcd"]
+
+[ext_resource type="Script" uid="uid://cxghwkowtvs57" path="res://Scripts/gui/resolusion_gui.gd" id="1_3nxdm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nxdm"]
+bg_color = Color(0.147672, 0.147672, 0.147672, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0562916, 0.0562916, 0.0562915, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(266, 46)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -594.0
+offset_bottom = -474.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3nxdm")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 266.0
+offset_bottom = 46.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3nxdm")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="PixelScale" type="Label" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "PixelScale"
+
+[node name="scale" type="LineEdit" parent="Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
+placeholder_text = "scale"
+virtual_keyboard_type = 2
+
+[connection signal="text_submitted" from="Panel/MarginContainer/HBoxContainer/scale" to="." method="_on_scale_text_submitted"]

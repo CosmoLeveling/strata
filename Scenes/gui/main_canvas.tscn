@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwbdetm1k07vy"]
+[gd_scene load_steps=8 format=3 uid="uid://cwbdetm1k07vy"]
 
 [ext_resource type="Shader" uid="uid://c4glneiual5ui" path="res://assets/shaders/player.gdshader" id="1_cvcu8"]
 [ext_resource type="PackedScene" uid="uid://cqsd00lmx1oo2" path="res://Scenes/gui/start_gui.tscn" id="1_p4yrf"]
 [ext_resource type="PackedScene" uid="uid://04i15e30pltm" path="res://Scenes/gui/game_choose_menu.tscn" id="2_cvcu8"]
 [ext_resource type="Script" uid="uid://6ts13526b510" path="res://util/debug/fps.gd" id="4_f0frk"]
+[ext_resource type="PackedScene" uid="uid://oh3fdgsukpxm" path="res://Scenes/gui/options_menu.tscn" id="5_l43ge"]
+[ext_resource type="PackedScene" uid="uid://c8qrnst716ip7" path="res://Scenes/gui/pause_menu.tscn" id="6_j4p68"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f0frk"]
 shader = ExtResource("1_cvcu8")
@@ -30,3 +32,17 @@ visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("4_f0frk")
+
+[node name="OptionsMenu" parent="." instance=ExtResource("5_l43ge")]
+visible = false
+custom_minimum_size = Vector2(460, 191)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_j4p68")]
+visible = false

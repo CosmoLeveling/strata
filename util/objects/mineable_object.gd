@@ -28,6 +28,7 @@ func interact():
 
 func spawn_drop():
 	var drop = drop_scene.instantiate()
+	drop.ore = ore
 	if drop.has_node("SellableComponent"):
 		drop.get_node("SellableComponent").cost = randi_range(100,20000)
 	get_parent().get_parent().get_parent().add_sibling(drop)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://di4xgcor6bcvj"]
+[gd_scene load_steps=20 format=4 uid="uid://di4xgcor6bcvj"]
 
 [ext_resource type="Script" uid="uid://buo43endipof8" path="res://Scripts/features/drill.gd" id="1_noric"]
 [ext_resource type="PackedScene" uid="uid://balqqg5ec3qo" path="res://assets/blender/drill.blend" id="1_xuuny"]
@@ -203,14 +203,30 @@ shader_parameter/vignette_opacity = 0.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_uv7vc"]
 size = Vector3(0.4, 0.185, 0.605)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_per7r"]
+height = 8.93994
+radius = 4.229
+
 [node name="DrillShip" type="Node3D"]
 script = ExtResource("1_noric")
 
 [node name="drill" parent="." instance=ExtResource("1_xuuny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -0.129487)
 
+[node name="CollisionShape3D" parent="drill/OutsideDecor/StaticBody3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="drill/MainBody/StaticBody3D" index="0"]
+visible = false
+
+[node name="CollisionShape3D" parent="drill/OutsideDecor_001/StaticBody3D" index="0"]
+visible = false
+
 [node name="OutsideDecor_002" parent="drill" index="4"]
 surface_material_override/0 = SubResource("ShaderMaterial_uv7vc")
+
+[node name="CollisionShape3D" parent="drill/OutsideDecor_002/StaticBody3D" index="0"]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.760859, 11.4146, -0.129487)
@@ -334,6 +350,13 @@ shape = SubResource("BoxShape3D_uv7vc")
 
 [node name="PlayerSpawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.72814, 3.09223, 0)
+
+[node name="OreDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25621, 3.87038, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OreDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.46997, 0)
+shape = SubResource("CylinderShape3D_per7r")
 
 [connection signal="interact" from="InteractionArea" to="." method="_on_interaction_area_interact"]
 

@@ -5,7 +5,7 @@ extends Node3D
 func _ready() -> void:
 	Engine.set_physics_ticks_per_second(roundi(DisplayServer.screen_get_refresh_rate()))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	GameManager.pause_menu = true
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("DEBUG_FORCE_QUIT"):
 		get_tree().quit()

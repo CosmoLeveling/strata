@@ -7,7 +7,7 @@ func _ready() -> void:
 	drill._open_close()
 	Engine.set_physics_ticks_per_second(roundi(DisplayServer.screen_get_refresh_rate()))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	GameManager.pause_menu = true
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_up"):
 		drill._open_close()

@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://oh3fdgsukpxm"]
+
+[ext_resource type="Script" uid="uid://c5eiiqr05iswd" path="res://Scenes/gui/options_menu.gd" id="1_03y8u"]
+[ext_resource type="PackedScene" uid="uid://d131or8gdybcd" path="res://Scenes/gui/resolusion_gui.tscn" id="1_rw1h5"]
+[ext_resource type="PackedScene" uid="uid://d54erbwyt06r" path="res://Scenes/gui/vsync_gui.tscn" id="2_uln50"]
+[ext_resource type="PackedScene" uid="uid://cglaa57y8beri" path="res://Scenes/gui/fps_gui.tscn" id="3_mukpf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uln50"]
+bg_color = Color(0.111197, 0.111197, 0.111197, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0846899, 0.0846899, 0.0846899, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Control" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -250.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_03y8u")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uln50")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Control2" parent="PanelContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_rw1h5")]
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("2_uln50")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("3_mukpf")]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "BACK"
+
+[node name="Control2" type="Control" parent="PanelContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer4/Button" to="." method="_on_button_pressed"]
