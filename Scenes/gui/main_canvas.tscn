@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwbdetm1k07vy"]
+[gd_scene format=3 uid="uid://cwbdetm1k07vy"]
 
 [ext_resource type="Shader" uid="uid://c4glneiual5ui" path="res://assets/shaders/player.gdshader" id="1_cvcu8"]
 [ext_resource type="PackedScene" uid="uid://cqsd00lmx1oo2" path="res://Scenes/gui/start_gui.tscn" id="1_p4yrf"]
@@ -11,9 +11,9 @@
 shader = ExtResource("1_cvcu8")
 shader_parameter/steps = 50.0
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=692744089]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1308616589]
 material = SubResource("ShaderMaterial_f0frk")
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,18 +22,18 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="StartGui" parent="." instance=ExtResource("1_p4yrf")]
+[node name="StartGui" parent="." unique_id=1041096320 instance=ExtResource("1_p4yrf")]
 visible = false
 
-[node name="GameChooseMenu" parent="." instance=ExtResource("2_cvcu8")]
+[node name="GameChooseMenu" parent="." unique_id=425825538 instance=ExtResource("2_cvcu8")]
 visible = false
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=84568956]
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("4_f0frk")
 
-[node name="OptionsMenu" parent="." instance=ExtResource("5_l43ge")]
+[node name="OptionsMenu" parent="." unique_id=1150705110 instance=ExtResource("5_l43ge")]
 visible = false
 custom_minimum_size = Vector2(460, 191)
 anchors_preset = 8
@@ -44,5 +44,5 @@ anchor_bottom = 0.5
 offset_right = 0.0
 offset_bottom = 0.0
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_j4p68")]
+[node name="PauseMenu" parent="." unique_id=2048113479 instance=ExtResource("6_j4p68")]
 visible = false

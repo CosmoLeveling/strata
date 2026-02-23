@@ -8,12 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Strata"
 run/main_scene="uid://dj8fo7q7j6drw"
-config/features=PackedStringArray("4.4", "Forward Plus")
-run/max_fps=45
+config/features=PackedStringArray("4.6", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [audio]
@@ -33,6 +37,7 @@ window/size/viewport_height=520
 window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+window/vsync/vsync_mode=0
 
 [editor_plugins]
 

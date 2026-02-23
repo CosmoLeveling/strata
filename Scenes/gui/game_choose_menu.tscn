@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://04i15e30pltm"]
+[gd_scene format=3 uid="uid://04i15e30pltm"]
 
 [ext_resource type="Script" uid="uid://d0106ru16swsb" path="res://Scripts/gui/game_choose_menu.gd" id="1_nlxf7"]
 [ext_resource type="PackedScene" uid="uid://bnqohi6mq2o14" path="res://Scenes/gui/Template/SaveTemplate.tscn" id="2_awayp"]
@@ -15,7 +15,7 @@ corner_radius_top_right = 30
 corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
-[node name="GameChooseMenu" type="Control"]
+[node name="GameChooseMenu" type="Control" unique_id=116153237]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +25,7 @@ grow_vertical = 2
 script = ExtResource("1_nlxf7")
 save_scene = ExtResource("2_awayp")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1429496419]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,19 +37,19 @@ theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 60
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=39913979]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nlxf7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=1825945237]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1052661172]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer" unique_id=1217167292]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -58,23 +58,23 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SaveParent" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="SaveParent" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/MarginContainer" unique_id=64702842]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Panel" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/MarginContainer/SaveParent" instance=ExtResource("2_awayp")]
+[node name="Panel" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/MarginContainer/SaveParent" unique_id=1468392253 instance=ExtResource("2_awayp")]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=65212724]
 custom_minimum_size = Vector2(0, 36.635)
 layout_mode = 2
 
-[node name="Save" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Save" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1634344607]
 layout_mode = 2
 text = "SAVE GAME"
 
-[node name="Load" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Load" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer" unique_id=1685023415]
 layout_mode = 2
 text = "Load"
 
